@@ -57,8 +57,8 @@ from core.pipelines import (
     PoetryVideoPipeline,
 )
 from core.pipelines.poetry_video import POETRY_SUBTITLE_STYLE
-from core.api.rehan_image import rehanImageAPI
-from core.api.rehan_models import fetch_available_models
+from core.api.Agnes_image import AgnesImageAPI
+from core.api.Agnes_models import fetch_available_models
 from core.api.error_collector import set_workspace_root
 from core.artifacts import list_artifacts, resolve_artifact, get_cascade_plan, apply_cascade_plan
 from core.task_manager import TaskManager
@@ -654,7 +654,7 @@ async def generate_image(
     system_prompt: str = Form(""),
     reference_image: UploadFile = File(None),
 ):
-    """简单图片生成：创建任务 → 直调 rehan Image API → 保存到任务目录。"""
+    """简单图片生成：创建任务 → 直调 Agnes Image API → 保存到任务目录。"""
     api_key = get_api_key()
     if not api_key:
         raise HTTPException(status_code=400, detail="请先配置 API Key")
