@@ -1,5 +1,5 @@
 """
-Agnes Video Generator v2.0 — 数据模型层
+rehan's Video Generator v2.0 — 数据模型层
 
 定义所有任务类型的数据结构：
 - TaskType 枚举、VideoMode 枚举
