@@ -1,5 +1,5 @@
 """
-Agnes Video Generator v2.0 — FastAPI 服务层
+rehan Video Generator v2.0 — FastAPI 服务层
 
 三种任务类型的路由集成：
 - POST /api/tasks/simple      — 简单视频生成
@@ -57,8 +57,8 @@ from core.pipelines import (
     PoetryVideoPipeline,
 )
 from core.pipelines.poetry_video import POETRY_SUBTITLE_STYLE
-from core.api.agnes_image import AgnesImageAPI
-from core.api.agnes_models import fetch_available_models
+from core.api.rehan_image import rehanImageAPI
+from core.api.rehan_models import fetch_available_models
 from core.api.error_collector import set_workspace_root
 from core.artifacts import list_artifacts, resolve_artifact, get_cascade_plan, apply_cascade_plan
 from core.task_manager import TaskManager
@@ -83,9 +83,9 @@ from models.task import (
 # 并发控制（复用回归流程的加权信号量逻辑）
 # ═══════════════════════════════════════════════════
 
-# Agnes API 每分钟调用上限（与 rate_limiter.py / regression_runner.py 一致）
+# rehan API 每分钟调用上限（与 rate_limiter.py / regression_runner.py 一致）
 _AGNES_RATE_LIMIT = int(os.environ.get("AGNES_RATE_LIMIT", "20"))
-# 各任务类型权重 = 该类型预估的每分钟 Agnes API 调用数
+# 各任务类型权重 = 该类型预估的每分钟 rehan API 调用数
 # 留 50% 余量 => 总权重上限 = _AGNES_RATE_LIMIT / 2
 TASK_TYPE_WEIGHTS = {
     TaskType.SIMPLE: 1,       # 1 submit + 轻量轮询
@@ -101,7 +101,7 @@ MAX_CONCURRENT_WEIGHT = _AGNES_RATE_LIMIT // 2  # 默认 10
 class WeightedSemaphore:
     """加权信号量：控制并发任务的总权重不超过上限。
 
-    每个任务类型的权重 = 该类型预估的每分钟 Agnes API 调用数。
+    每个任务类型的权重 = 该类型预估的每分钟 rehan API 调用数。
     控制并发任务数，确保总 API 调用 ≤ AGNES_RATE_LIMIT/分钟。
     逻辑与 regression_runner.py 的 WeightedSemaphore 完全一致。
     """
@@ -245,7 +245,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="Agnes Video Generator", lifespan=lifespan)
+app = FastAPI(title="rehan Video Generator", lifespan=lifespan)
 
 
 # ═══════════════════════════════════════════════════
@@ -253,7 +253,7 @@ app = FastAPI(title="Agnes Video Generator", lifespan=lifespan)
 # ═══════════════════════════════════════════════════
 
 # 试听音频缓存目录（系统临时目录，重启后自动清理）
-VOICE_PREVIEW_CACHE_DIR = os.path.join(tempfile.gettempdir(), "agnes-voice-previews")
+VOICE_PREVIEW_CACHE_DIR = os.path.join(tempfile.gettempdir(), "rehan-voice-previews")
 os.makedirs(VOICE_PREVIEW_CACHE_DIR, exist_ok=True)
 
 
@@ -344,7 +344,7 @@ async def root():
     index_path = os.path.join(os.path.dirname(__file__), "static", "index.html")
     if os.path.exists(index_path):
         return FileResponse(index_path)
-    return {"message": "Agnes Video Generator API"}
+    return {"message": "rehan Video Generator API"}
 
 
 # ═══════════════════════════════════════════════════
@@ -404,7 +404,7 @@ _MODEL_CACHE = {"models": None, "ts": 0.0, "ttl": 300}
 
 @app.get("/api/models")
 async def list_models(refresh: bool = False):
-    """拉取 Agnes 可用模型列表，按 text/image/video 分组。
+    """拉取 rehan 可用模型列表，按 text/image/video 分组。
 
     需已配置 API Key。列表来自 GET /v1/models?all=true（含内测模型）。
     失败时回退到硬编码默认列表。
@@ -654,7 +654,7 @@ async def generate_image(
     system_prompt: str = Form(""),
     reference_image: UploadFile = File(None),
 ):
-    """简单图片生成：创建任务 → 直调 Agnes Image API → 保存到任务目录。"""
+    """简单图片生成：创建任务 → 直调 rehan Image API → 保存到任务目录。"""
     api_key = get_api_key()
     if not api_key:
         raise HTTPException(status_code=400, detail="请先配置 API Key")
