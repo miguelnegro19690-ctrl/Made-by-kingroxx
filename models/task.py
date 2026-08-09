@@ -163,7 +163,7 @@ class BaseTaskState(BaseModel):
 class SimpleVideoTask(BaseTaskState):
     """简单视频任务（类型 1）
 
-    用户直接输入 prompt，选择模式/时长/分辨率，调用 Agnes Video API 生成单个视频。
+    用户直接输入 prompt，选择模式/时长/分辨率，调用 rehan's Video API 生成单个视频。
     """
 
     task_type: Literal[TaskType.SIMPLE] = TaskType.SIMPLE
