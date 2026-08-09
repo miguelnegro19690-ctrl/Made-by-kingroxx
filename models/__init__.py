@@ -1,5 +1,5 @@
 """
-models — Agnes Video Generator v2.0 数据模型层
+models — rehan's video Generator v2.0 数据模型层
 
 导出所有任务模型、枚举、配置类和请求/响应模型。
 """
