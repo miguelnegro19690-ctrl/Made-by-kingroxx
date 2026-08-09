@@ -3,7 +3,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "================================================"
-echo "  rehan's Video Generator"
+echo "  Agnes Video Generator"
 echo "================================================"
 echo ""
 
