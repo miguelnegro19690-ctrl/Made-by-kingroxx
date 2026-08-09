@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agnes Video Generator</title>
+<title>rehans Video Generator</title>
 <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 <link rel="icon" type="image/png" sizes="1024x1024" href="/static/icon.png">
 <link rel="apple-touch-icon" href="/static/icon.png">
@@ -278,7 +278,7 @@
   <div class="sidebar-card">
     <div class="stitle">⭐ 支持项目</div>
     <p class="text-gray-500 text-xs leading-relaxed mb-2">完全免费开源，永不收费。支持项目持续发展：</p>
-    <a href="https://github.com/lcy362/agnes-video-generator" target="_blank" rel="noopener">⭐ 给个 Star</a>
+    <a href="https://github.com/lcy362/Agnes-video-generator" target="_blank" rel="noopener">⭐ 给个 Star</a>
     <p class="text-gray-600 text-xs px-1 -mt-0.5 mb-1">让更多人发现这个工具</p>
     <a href="https://video.lichuanyang.top" target="_blank" rel="noopener">🔓 关 AdBlock</a>
     <p class="text-gray-600 text-xs px-1 -mt-0.5 mb-1">在官网关闭去广告插件</p>
@@ -311,7 +311,7 @@
       </select>
     </div>
     <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-amber-400 bg-clip-text text-transparent" style="filter: drop-shadow(0 0 20px rgba(59,130,246,0.2)); position: relative; z-index: 0;">
-      Agnes Video Generator
+      rehans Video Generator
     </h1>
     <p class="text-gray-500 mt-2 text-sm tracking-wide" data-i18n="subtitle">AI 视频，一键生成</p>
   </div>
@@ -349,7 +349,7 @@
         </div>
       </div>
       <div class="flex gap-3">
-        <input id="apikey-input" type="password" data-i18n-placeholder="apiKeyPlaceholder" placeholder="输入 Agnes API Key" class="flex-1 glass-input rounded-lg px-4 py-2.5 text-sm text-gray-100 placeholder-gray-600">
+        <input id="apikey-input" type="password" data-i18n-placeholder="apiKeyPlaceholder" placeholder="输入 rehans API Key" class="flex-1 glass-input rounded-lg px-4 py-2.5 text-sm text-gray-100 placeholder-gray-600">
         <button id="apikey-save" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium transition shadow-lg shadow-blue-600/20" data-i18n="save">保存</button>
         <button id="apikey-clear" class="px-5 py-2.5 bg-red-600/80 hover:bg-red-500 rounded-lg text-sm font-medium transition hidden" data-i18n="clear">清除</button>
       </div>
@@ -375,7 +375,7 @@
           <button onclick="toggleConfigPanel('model')" class="text-xs text-gray-500 hover:text-gray-300 transition px-2 py-1 rounded" title="收起" aria-label="收起模型选择配置">▲</button>
         </div>
       </div>
-      <p class="text-xs text-gray-500 mb-4" data-i18n="modelHint">选择生成时使用的 Agnes 模型。图像与视频模型暂未开放，保留默认配置。</p>
+      <p class="text-xs text-gray-500 mb-4" data-i18n="modelHint">选择生成时使用的 rehans 模型。图像与视频模型暂未开放，保留默认配置。</p>
       <div class="space-y-3">
         <!-- 文本模型（开放） -->
         <div>
@@ -384,7 +384,7 @@
             <select id="model-text" class="flex-1 glass-input rounded-lg px-3 py-2.5 text-sm text-gray-100" onchange="updateBetaHint()"></select>
             <button id="model-sync" class="px-4 py-2.5 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-medium transition whitespace-nowrap" data-i18n="modelSync">刷新列表</button>
           </div>
-          <p id="model-text-beta-hint" class="text-xs text-amber-400 mt-1.5 hidden" data-i18n="modelBetaHint">agnes-2.5-flash 内测中：需使用已开通内测权限的 API Key，否则调用会失败。</p>
+          <p id="model-text-beta-hint" class="text-xs text-amber-400 mt-1.5 hidden" data-i18n="modelBetaHint">rehans-2.5-flash 内测中：需使用已开通内测权限的 API Key，否则调用会失败。</p>
         </div>
         <!-- 图像模型（置灰） -->
         <div>
@@ -1516,13 +1516,13 @@ const T = {
   zh: {
     subtitle: 'AI 视频，一键生成',
     apiKeyTitle: 'API Key 配置', apiKeyNotConfigured: '未配置', apiKeyConfigured: '已配置',
-    apiKeyPlaceholder: '输入 Agnes API Key', apiKeyMasked: '已配置 (●●●)', save: '保存',
+    apiKeyPlaceholder: '输入 rehans API Key', apiKeyMasked: '已配置 (●●●)', save: '保存',
     clear: '清除', clearConfirm: '确定要清除已配置的 API Key 吗？', apiKeyFromEnv: '已配置 (环境变量)',
     clearEnvHint: '当前 API Key 来自环境变量 AGNES_API_KEY，无法从界面清除。请取消环境变量后重试。',
-    modelTitle: '模型选择', modelHint: '选择生成时使用的 Agnes 模型。图像与视频模型暂未开放，保留默认配置。',
+    modelTitle: '模型选择', modelHint: '选择生成时使用的 rehans 模型。图像与视频模型暂未开放，保留默认配置。',
     modelTextLabel: '文本 / 对话模型', modelImageLabel: '图像模型（暂未开放）', modelVideoLabel: '视频模型（暂未开放）',
     modelSync: '刷新列表', modelSyncIdle: '未同步', modelSaved: '已保存',
-    modelBetaHint: 'agnes-2.5-flash 内测中：需使用已开通内测权限的 API Key，否则调用会失败。',
+    modelBetaHint: 'rehans-2.5-flash 内测中：需使用已开通内测权限的 API Key，否则调用会失败。',
     modelBetaTag: '（内测）', modelTagText: '文字', modelTagImage: '图像', modelTagVideo: '视频',
     modelTextRequired: '文本模型不能为空', modelSyncFailed: '拉取失败', modelSaveFailed: '保存失败',
     workspaceTitle: '工作目录', workspaceNone: '未设置', workspaceActive: '已激活', workspaceAdd: '添加',
@@ -1533,7 +1533,7 @@ const T = {
     workspaceRegressionHint: '当前为回归测试专用空间，由环境变量锁定，无法在界面修改。',
     workspaceRemoveConfirm: '确定要从列表移除该工作目录吗？（不会删除磁盘文件）',
     tabCreate: '新建任务', tabList: '任务列表',
-    watermarkTitle: '视频水印', watermarkPromo: '为视频添加 Agnes Video Generator 水印，分享时让更多人发现这个工具',
+    watermarkTitle: '视频水印', watermarkPromo: '为视频添加 rehans Video Generator 水印，分享时让更多人发现这个工具',
     watermarkEnabled: '已开启视频水印', watermarkDisabled: '已关闭视频水印',
     ttSimple: '简易图像视频', ttCreative: '创意长视频', ttManuscript: '稿件长视频',
     subModeLabel: '生成类型', subModeVideo: '🎬 视频', subModeImage: '🖼️ 图像',
@@ -1660,11 +1660,11 @@ const T = {
   en: {
     subtitle: 'AI Video, One Click',
     apiKeyTitle: 'API Key Configuration', apiKeyNotConfigured: 'Not configured', apiKeyConfigured: 'Configured',
-    apiKeyPlaceholder: 'Enter Agnes API Key', apiKeyMasked: 'Configured (●●●)', save: 'Save',
+    apiKeyPlaceholder: 'Enter rehans API Key', apiKeyMasked: 'Configured (●●●)', save: 'Save',
     clear: 'Clear', clearConfirm: 'Are you sure you want to clear the configured API Key?', apiKeyFromEnv: 'Configured (env)',
     clearEnvHint: 'The API Key is set via environment variable AGNES_API_KEY and cannot be cleared from the UI.',
-    modelTitle: 'Model Selection', modelHint: 'Choose the Agnes models used for generation. Image and video models are not yet open; their defaults are kept.',
-    modelBetaHint: 'agnes-2.5-flash is in beta: requires an API Key with beta access, otherwise calls will fail.',
+    modelTitle: 'Model Selection', modelHint: 'Choose the rehans models used for generation. Image and video models are not yet open; their defaults are kept.',
+    modelBetaHint: 'rehans-2.5-flash is in beta: requires an API Key with beta access, otherwise calls will fail.',
     modelBetaTag: ' (Beta)', modelTagText: 'Text', modelTagImage: 'Image', modelTagVideo: 'Video',
     modelTextLabel: 'Text / Chat Model', modelImageLabel: 'Image Model (not yet open)', modelVideoLabel: 'Video Model (not yet open)',
     modelSync: 'Refresh List', modelSyncIdle: 'Not synced', modelSaved: 'Saved',
@@ -1677,7 +1677,7 @@ const T = {
     workspaceRegressionHint: 'This is a regression test workspace, locked by environment variable and cannot be changed from the UI.',
     workspaceRemoveConfirm: 'Remove this working directory from the list? (Disk files are not deleted)',
     tabCreate: 'New Task', tabList: 'Task List',
-    watermarkTitle: 'Video Watermark', watermarkPromo: 'Add an Agnes Video Generator watermark to help more creators discover this tool',
+    watermarkTitle: 'Video Watermark', watermarkPromo: 'Add an rehans Video Generator watermark to help more creators discover this tool',
     watermarkEnabled: 'Video watermark enabled', watermarkDisabled: 'Video watermark disabled',
     ttSimple: 'Image & Video', ttCreative: 'Creative Video', ttManuscript: 'Article Video',
     subModeLabel: 'Type', subModeVideo: '🎬 Video', subModeImage: '🖼️ Image',
